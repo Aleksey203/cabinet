@@ -6,10 +6,15 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'users' => [
+            'class' => 'app\modules\users\UsersModule'
+        ]
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'I5TFLfxI4s8o7KB_Ud_KeLdI7BUzeQeE',
+            'cookieValidationKey' => '15TFLfxI4s8o7KB_Ud_KeLdI7BUzeQeE',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
