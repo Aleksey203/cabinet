@@ -53,18 +53,18 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
             'email' => 'Email',
-            'phone' => 'Phone',
+            'phone' => 'Телефон',
             'hash' => 'Hash',
             'question' => 'Контрольный вопрос',
             'answer' => 'Контрольный ответ',
             'organization' => 'Организация',
             'avatar' => 'Аватар',
             'balance' => 'Баланс',
-            'created' => 'Created',
-            'role' => 'Role',
-            'ban' => 'Ban',
+            'created' => 'Дата регистрации',
+            'role' => 'Роль',
+            'ban' => 'Забанен',
         ];
     }
 }
