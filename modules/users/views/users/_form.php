@@ -18,7 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => 125]) ?>
 
-    <?= $form->field($model, 'hash')->textInput(['maxlength' => 512]) ?>
+    <?= $form->field($model, 'pass1')->textInput(['minlength' => 5]) ?>
+
+    <?= $form->field($model, 'pass2')->textInput(['minlength' => 5]) ?>
 
     <?= $form->field($model, 'question')->textInput(['maxlength' => 512]) ?>
 

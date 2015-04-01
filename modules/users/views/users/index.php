@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'avatar',
              'balance',
             // 'created',
-             'role',
+             //'role',
              'ban',
 
             ['class' => 'yii\grid\ActionColumn'],

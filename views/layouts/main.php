@@ -38,12 +38,12 @@ AppAsset::register($this);
                     ['label' => 'Home', 'url' => ['/site/index']],
                     ['label' => 'About', 'url' => ['/site/about']],
                     ['label' => 'Contact', 'url' => ['/site/contact']],
-                    ['label' => 'Пользователи', 'url' => ['/users/users']],
-                    ['label' => 'Form', 'url' => ['/site/entry']],
+                    //['label' => 'Настройки', 'url' => ['/user/settings']],
+                    ['label' => 'Личный кабинет', 'url' => ['/user/settings']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
+                        ['label' => 'Login', 'url' => ['/user/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
+                            'url' => ['/user/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);

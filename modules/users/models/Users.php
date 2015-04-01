@@ -3,6 +3,7 @@
 namespace app\modules\users\models;
 
 use Yii;
+use yii\db\BaseActiveRecord;
 
 /**
  * This is the model class for table "users".
@@ -20,6 +21,7 @@ use Yii;
  * @property integer $created
  * @property integer $role
  * @property integer $ban
+ * @property integer $pass1
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -39,6 +41,7 @@ class Users extends \yii\db\ActiveRecord
         return [
             [['name', 'email', 'phone', 'hash'], 'required'],
             [['balance'], 'number'],
+            [['email'], 'email'],
             [['created', 'role', 'ban'], 'integer'],
             [['name', 'email', 'answer', 'organization', 'avatar'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 125],
@@ -61,10 +64,24 @@ class Users extends \yii\db\ActiveRecord
             'answer' => 'Контрольный ответ',
             'organization' => 'Организация',
             'avatar' => 'Аватар',
-            'balance' => 'Баланс',
+            'balance' => 'Баланс(руб.)',
             'created' => 'Дата регистрации',
             'role' => 'Роль',
             'ban' => 'Забанен',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->ban = 0;
+            $this->role = 2;
+            $this->balance = 0;
+            $this->created = time();
+            $this->hash = Yii::$app->getSecurity()->generatePasswordHash($this->pass1);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
