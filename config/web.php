@@ -8,9 +8,6 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        /*'users' => [
-            'class' => 'app\modules\users\UsersModule'
-        ]*/
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableConfirmation' => !YII_DEBUG,

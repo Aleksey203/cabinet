@@ -90,6 +90,7 @@ class Module extends BaseModule
         'confirm/<id:\d+>/<code:\w+>' => 'registration/confirm',
         'forgot'                      => 'recovery/request',
         'recover/<id:\d+>/<code:\w+>' => 'recovery/reset',
-        'settings/<action:\w+>'       => 'settings/<action>'
+        'settings/<action:\w+>'       => 'settings/<action>',
+        'transaction/<action:\w+>'    => 'transaction/<action>'
     ];
 }

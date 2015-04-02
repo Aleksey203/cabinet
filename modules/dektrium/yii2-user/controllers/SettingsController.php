@@ -106,11 +106,11 @@ class SettingsController extends Controller
             $model->avatar = UploadedFile::getInstance($model, 'avatar');
 
             if ($model->avatar && $model->validate()) {
-                $path = \Yii::getAlias('@app/web/uploads/users/' . \Yii::$app->user->identity->getId());
-                if (!is_dir($path)) {
-
-                    FileHelper::createDirectory($path);
+                $path = \Yii::getAlias('@app/web/uploads/users/' . \Yii::$app->user->identity->getId() . '/avatar');
+                if (is_dir($path)) {
+                    FileHelper::removeDirectory($path);
                 }
+                FileHelper::createDirectory($path);
                 if ($model->avatar->saveAs($path . '/' . $model->avatar->baseName . '.' . $model->avatar->extension)) {
                     $request['Profile']['avatar'] = $model->avatar->baseName . '.' . $model->avatar->extension;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\users\models;
+namespace dektrium\user\models;
 
 use Yii;
 
@@ -46,4 +46,5 @@ class Transactions extends \yii\db\ActiveRecord
             'summa' => 'сумма',
         ];
     }
+
 }

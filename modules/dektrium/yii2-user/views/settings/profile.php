@@ -57,6 +57,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'bio')->textarea() ?>
 
+                <?php if ($model->avatar) { ?>
+                    <div class="col-lg-offset-3" style="margin-bottom: 15px;">
+                        <img src="/uploads/users/<?= Html::encode($model->user_id) ?>/avatar/<?= Html::encode($model->avatar) ?>" alt="" style="max-width: 180px;" class="img-rounded img-responsive" />
+                    </div>
+                <?php }?>
                 <?= $form->field($model, 'avatar')->fileInput() ?>
 
                 <?php //echo $form->field($model, 'gravatar_email')->hint(\yii\helpers\Html::a(Yii::t('user', 'Change your avatar at Gravatar.com'), 'http://gravatar.com')) ?>

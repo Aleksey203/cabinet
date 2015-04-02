@@ -197,6 +197,8 @@ class User extends ActiveRecord implements IdentityInterface
             // password rules
             ['password', 'required', 'on' => ['register']],
             ['password', 'string', 'min' => 6, 'on' => ['register', 'create']],
+
+            ['balance', 'number'],
         ];
     }
 
@@ -416,13 +418,13 @@ class User extends ActiveRecord implements IdentityInterface
             if (\Yii::$app instanceof \yii\web\Application) {
                 $this->setAttribute('registration_ip', \Yii::$app->request->userIP);
             }
+            $this->setAttribute('role', 2);
+            $this->setAttribute('balance', 0);
         }
 
         if (!empty($this->password)) {
             $this->setAttribute('password_hash', Password::hash($this->password));
         }
-
-        $this->setAttribute('role', 2);
 
         return parent::beforeSave($insert);
     }

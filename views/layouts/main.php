@@ -36,9 +36,13 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
+
+                    (!Yii::$app->user->isGuest && Yii::$app->user->identity->getIsAdmin()) ?
+                    ['label' => 'Управление', 'url' => ['/user/admin']] :
                     ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    //['label' => 'Настройки', 'url' => ['/user/settings']],
+                    ['label' => 'Снять деньги', 'url' => ['/user/transactions/withdraw','type'=>'minus']],
+                    ['label' => 'Добавить деньги', 'url' => ['/user/transactions/withdraw','type'=>'plus']],
+                    ['label' => 'Профайл', 'url' => ['/user/profile']],
                     ['label' => 'Личный кабинет', 'url' => ['/user/settings']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/user/security/login']] :
