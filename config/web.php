@@ -13,8 +13,8 @@ $config = [
         ]*/
         'user' => [
             'class' => 'dektrium\user\Module',
-            'enableConfirmation' => false,
-            'admins' => ['admin']
+            'enableConfirmation' => !YII_DEBUG,
+            'admins' => ['Alex']
         ],
     ],
     'components' => [

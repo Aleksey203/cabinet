@@ -41,9 +41,9 @@ AppAsset::register($this);
                     //['label' => 'Настройки', 'url' => ['/user/settings']],
                     ['label' => 'Личный кабинет', 'url' => ['/user/settings']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/user/login']] :
+                        ['label' => 'Login', 'url' => ['/user/security/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/user/logout'],
+                            'url' => ['/user/security/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);
