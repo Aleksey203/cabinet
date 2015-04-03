@@ -11,7 +11,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use app\assets\JqueryInputmaskAsset;
 /**
  * @var $this  yii\web\View
  * @var $form  yii\widgets\ActiveForm
@@ -68,3 +68,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<?php
+JqueryInputmaskAsset::register($this);
+$this->registerJs("$(document).ready(function(){
+        $('#settings-form-phone').inputmask(\"mask\", {\"mask\": \"+7 (999) 999-99-99\"});
+    });");
+?>
