@@ -14,17 +14,16 @@ $config = [
             'admins' => ['Alex']
         ],
     ],
+    //'defaultRoute' => 'user',
     'components' => [
-        /*'assetManager' => [
-            'bundles' => [
-                'yii\web\JqueryAsset' => [
-                    //'sourcePath' => null,   // do not publish the bundle
-                    'js' => [
-                        YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'
-                    ]
-                ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+       /*     'showScriptName' => false,
+            'enableStrictParsing' => false,*/
+            'rules' => [
+                'user' => 'user/security/login',
             ],
-        ],*/
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '15TFLfxI4s8o7KB_Ud_KeLdI7BUzeQeE',

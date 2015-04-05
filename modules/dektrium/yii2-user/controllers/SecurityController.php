@@ -85,7 +85,8 @@ class SecurityController extends Controller
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            $this->goHome();
+            //$this->goHome();
+            $this->redirect(['settings/profile']);
         }
 
         $model = \Yii::createObject(LoginForm::className());
@@ -93,9 +94,11 @@ class SecurityController extends Controller
         $this->performAjaxValidation($model);
 
         if ($model->load(\Yii::$app->getRequest()->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['settings/profile']);
         }
-        $layout = $this->layout;
+
+        $this->layout = 'enter';
+
         return $this->render('login', [
             'model'  => $model,
             'module' => $this->module,
@@ -109,7 +112,8 @@ class SecurityController extends Controller
     public function actionLogout()
     {
         \Yii::$app->getUser()->logout();
-        return $this->goHome();
+        //return $this->goHome();
+        return $this->redirect(['security/login']);
     }
 
     /**

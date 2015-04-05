@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
             </div>
-        </div>
+
         <?php if ($module->enableConfirmation): ?>
             <p class="text-center">
                 <?= Html::a(Yii::t('user', 'Didn\'t receive confirmation message?'), ['/user/registration/resend']) ?>
@@ -62,6 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a(Yii::t('user', 'Don\'t have an account? Sign up!'), ['/user/registration/register']) ?>
             </p>
         <?php endif ?>
+        </div>
         <?= Connect::widget([
             'baseAuthUrl' => ['/user/security/auth']
         ]) ?>

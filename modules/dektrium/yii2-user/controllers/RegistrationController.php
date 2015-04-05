@@ -44,6 +44,7 @@ class RegistrationController extends Controller
     public function __construct($id, $module, Finder $finder, $config = [])
     {
         $this->finder = $finder;
+        $this->layout = 'enter';
         parent::__construct($id, $module, $config);
     }
 

@@ -48,9 +48,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
             </div>
-        </div>
+
         <p class="text-center">
             <?= Html::a(Yii::t('user', 'If you already registered, sign in and connect this account on settings page'), ['/user/security/login']) ?>.
         </p>
+        </div>
     </div>
 </div>
