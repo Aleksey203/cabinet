@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
-
+use Yii;
 /**
  * SettingsController manages updating user settings (e.g. profile, email and password).
  *
@@ -98,9 +98,19 @@ class SettingsController extends Controller
     {
         $model = $this->finder->findProfileById(\Yii::$app->user->identity->getId());
 
-        $this->performAjaxValidation($model);
-
         $request = \Yii::$app->request->post();
+
+        if (isset($request['ajax'])) $this->performAjaxValidation($model);
+
+        if (\Yii::$app->request->isAjax) {
+            $data = array();
+            if ($model->load($request) && $model->save()) {
+                \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'Your profile has been updated'));
+                $data['message'] = $this->renderPartial('/_alert', ['module' => Yii::$app->getModule('user')]);
+            }
+            return json_encode($data);
+        }
+
 
         if (\Yii::$app->request->isPost) {
             $model->avatar = UploadedFile::getInstance($model, 'avatar');
@@ -117,6 +127,8 @@ class SettingsController extends Controller
                 }
             }
         }
+
+
 
         if ($model->load($request) && $model->save()) {
             \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'Your profile has been updated'));
@@ -137,7 +149,18 @@ class SettingsController extends Controller
         /** @var SettingsForm $model */
         $model = \Yii::createObject(SettingsForm::className());
 
-        $this->performAjaxValidation($model);
+        $request = \Yii::$app->request->post();
+
+        if (isset($request['ajax'])) $this->performAjaxValidation($model);
+
+        if (\Yii::$app->request->isAjax) {
+            $data = array();
+            if ($model->load($request) && $model->save()) {
+                \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'Your profile has been updated'));
+                $data['message'] = $this->renderPartial('/_alert', ['module' => Yii::$app->getModule('user')]);
+            }
+            return json_encode($data);
+        }
 
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             \Yii::$app->session->setFlash('success', \Yii::t('user', 'Your account details have been updated'));
@@ -243,6 +266,7 @@ class SettingsController extends Controller
     {
         if (\Yii::$app->request->isAjax && $model->load(\Yii::$app->request->post())) {
             \Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($model);
             echo json_encode(ActiveForm::validate($model));
             \Yii::$app->end();
         }
