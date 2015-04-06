@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "88d1afa0bc3197748d6b82b2461c0391",
+    "hash": "83d8de40df461c65a71ec6c5b2b892ea",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -305,12 +305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-user.git",
-                "reference": "bea25eef1bcfae9bc311c8cf47f27199d462ecb7"
+                "reference": "891fe6c3957bde7f3a7893775fd304fc84140599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/bea25eef1bcfae9bc311c8cf47f27199d462ecb7",
-                "reference": "bea25eef1bcfae9bc311c8cf47f27199d462ecb7",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/891fe6c3957bde7f3a7893775fd304fc84140599",
+                "reference": "891fe6c3957bde7f3a7893775fd304fc84140599",
                 "shasum": ""
             },
             "require": {
@@ -321,6 +321,7 @@
                 "yiisoft/yii2-swiftmailer": "~2.0"
             },
             "require-dev": {
+                "codeception/aspect-mock": "*",
                 "codeception/specify": "*",
                 "codeception/verify": "*",
                 "yiisoft/yii2-codeception": "~2.0"
@@ -360,7 +361,7 @@
                 "yii2",
                 "yii2-user"
             ],
-            "time": "2015-04-01 09:03:58"
+            "time": "2015-04-06 09:21:39"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -544,6 +545,45 @@
                 "yii2"
             ],
             "time": "2015-03-02 17:54:53"
+        },
+        {
+            "name": "newerton/yii2-jcrop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/newerton/yii2-jcrop.git",
+                "reference": "a10b319a1f2c0ccfb42b13344072d4e65763918f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/newerton/yii2-jcrop/zipball/a10b319a1f2c0ccfb42b13344072d4e65763918f",
+                "reference": "a10b319a1f2c0ccfb42b13344072d4e65763918f",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "newerton\\jcrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Newerton Vargas de Araujo",
+                    "email": "newerton.araujo@gmail.com"
+                }
+            ],
+            "description": "Jcrop is the quick and easy way to add image cropping functionality to your web application.",
+            "keywords": [
+                "extension",
+                "jcrop",
+                "jquery",
+                "yii2"
+            ],
+            "time": "2014-11-21 17:09:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1226,7 +1266,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "kartik-v/yii2-password": 20,
-        "dektrium/yii2-user": 20
+        "dektrium/yii2-user": 20,
+        "newerton/yii2-jcrop": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -11,7 +11,23 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableConfirmation' => !YII_DEBUG,
-            'admins' => ['Alex']
+            'admins' => ['Alex'],
+            'modelMap' => [
+                'LoginForm' => 'app\modules\user\models\LoginForm',
+                'Profile' => 'app\modules\user\models\Profile',
+                'RegistrationForm' => 'app\modules\user\models\RegistrationForm',
+                'SettingsForm' => 'app\modules\user\models\SettingsForm',
+                'Transactions' => 'app\modules\user\models\Transactions',
+                'User' => 'app\modules\user\models\User',
+                'UserSearch' => 'app\modules\user\models\UserSearch',
+            ],
+            'controllerMap' => [
+                'recovery' => 'app\modules\user\controllers\RecoveryController',
+                'registration' => 'app\modules\user\controllers\RegistrationController',
+                'security' => 'app\modules\user\controllers\SecurityController',
+                'settings' => 'app\modules\user\controllers\SettingsController',
+                'transactions' => 'app\modules\user\controllers\TransactionsController',
+            ],
         ],
     ],
     //'defaultRoute' => 'user',
@@ -22,6 +38,13 @@ $config = [
             'enableStrictParsing' => false,*/
             'rules' => [
                 'user' => 'user/security/login',
+            ],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/modules/user/views'
+                ],
             ],
         ],
         'request' => [
