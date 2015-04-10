@@ -107,3 +107,12 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+#modify{text-align: center; display: inline-block;}
+
+.jcrop-holder{}
+.jcrop-tracker{ left: -4px!important;}
+#crop_imageId{background:dodgerblue; color: white; font: 20px Arial; margin: 7px 0; border-radius: 5px; padding: 4px;}
+#cancel_imageId{display: none!important; visibility: hidden;}
+/*#imageId{display: none;}
+#imageId_buttons{display: none;}*/

@@ -20,7 +20,12 @@
         "yiisoft/yii2-swiftmailer": "*",
         "kartik-v/yii2-password": "dev-master",
         "dektrium/yii2-user": "0.9.*@dev",
-        "newerton/yii2-jcrop": "dev-master"
+        "newerton/yii2-jcrop": "dev-master",
+        "2amigos/yii2-file-upload-widget": "*",
+        "yiisoft/yii2-imagine": "~2.0",
+        "newerton/jquery-mousewheel": "dev-master",
+        "newerton/fancy-box": "dev-master",
+        "newerton/yii2-fancybox": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
